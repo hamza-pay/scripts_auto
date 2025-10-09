@@ -1,0 +1,30 @@
+# Environment files with sensitive information
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Output files
+output/*.csv
+output/*.log
+output/*
+!output/.gitkeep
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Large data files in assets directory
+assets/*.csv
+assets/*.txt
+
+# Keep the directories but ignore contents
+assets/*
+!assets/.gitkeep
