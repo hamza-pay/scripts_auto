@@ -21,8 +21,18 @@ disable_ssl_warnings()
 # CONFIGURATION
 # ================================================================
 
-# File paths
-INPUT_FILE = DEFAULT_PATHS['input_transactions']
+# Show available .txt files and let user choose
+from utils import show_available_assets, get_asset_file_path
+
+print("Accounting Reversal Anomaly Detection")
+print("====================================")
+
+show_available_assets(['.txt'])
+
+input_filename = input("Please enter the input file name (e.g., 'input_transactions.txt'): ").strip()
+
+# Get the full path to the input file
+INPUT_FILE = get_asset_file_path(input_filename) if input_filename else DEFAULT_PATHS['input_transactions']
 OUTPUT_FILE = DEFAULT_PATHS['output_responses']
 
 # Get API configuration and network settings

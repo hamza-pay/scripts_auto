@@ -22,21 +22,14 @@ disable_ssl_warnings()
 # ================================================================
 
 # Get the input file name from the user (expects a .txt file with one ID per line)
-print(f"Available files in assets directory:")
-import os
-assets_dir = DEFAULT_PATHS['assets_dir']
-if os.path.exists(assets_dir):
-    files = [f for f in os.listdir(assets_dir) if f.endswith('.txt')]
-    for file in files:
-        print(f"  - {file}")
+from utils import show_available_assets, get_asset_file_path
+
+show_available_assets(['.txt'])
 
 input_filename = input("Please enter the input file name (e.g., 'input_transactions.txt'): ").strip()
 
-# If it's just a filename without path, look in the assets directory
-if '/' not in input_filename:
-    INPUT_FILE = f"{DEFAULT_PATHS['assets_dir']}/{input_filename}"
-else:
-    INPUT_FILE = input_filename
+# Get the full path to the input file
+INPUT_FILE = get_asset_file_path(input_filename)
 
 # File to write the output CSV to
 OUTPUT_FILE = DEFAULT_PATHS['output_responses']

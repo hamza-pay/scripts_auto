@@ -21,8 +21,18 @@ disable_ssl_warnings()
 # CONFIGURATION
 # ================================================================
 
-# File paths
-INPUT_FILE = DEFAULT_PATHS['input_data']
+# Show available CSV files and let user choose
+from utils import show_available_assets, get_asset_file_path
+
+print("Forward Anomaly Detection")
+print("========================")
+
+show_available_assets(['.csv'])
+
+input_filename = input("Please enter the input CSV file name (e.g., 'input_data.csv'): ").strip()
+
+# Get the full path to the input file
+INPUT_FILE = get_asset_file_path(input_filename) if input_filename else DEFAULT_PATHS['input_data']
 OUTPUT_FILE = DEFAULT_PATHS['output_responses']
 
 # Get API configuration and network settings

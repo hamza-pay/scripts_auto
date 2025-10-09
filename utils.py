@@ -110,6 +110,60 @@ def ensure_output_dir():
         os.makedirs(output_dir)
         print(f"Created output directory: {output_dir}")
 
+def show_available_assets(file_extensions=None):
+    """
+    Display available files in the assets directory.
+    
+    Args:
+        file_extensions: List of file extensions to filter by (e.g., ['.csv', '.txt'])
+                        If None, shows all files
+    """
+    assets_dir = DEFAULT_PATHS['assets_dir']
+    print(f"Available files in {assets_dir} directory:")
+    
+    if not os.path.exists(assets_dir):
+        print(f"  - {assets_dir} directory not found!")
+        return []
+    
+    files = []
+    for file in os.listdir(assets_dir):
+        # Skip hidden files and directories
+        if file.startswith('.'):
+            continue
+        
+        file_path = os.path.join(assets_dir, file)
+        if os.path.isfile(file_path):
+            # Filter by extensions if provided
+            if file_extensions is None or any(file.endswith(ext) for ext in file_extensions):
+                files.append(file)
+                print(f"  - {file}")
+    
+    if not files:
+        if file_extensions:
+            extensions_str = ", ".join(file_extensions)
+            print(f"  - No files with extensions {extensions_str} found!")
+        else:
+            print(f"  - No files found!")
+    
+    return files
+
+def get_asset_file_path(filename):
+    """
+    Get the full relative path to an asset file.
+    
+    Args:
+        filename: Name of the file in the assets directory
+    
+    Returns:
+        Relative path to the file
+    """
+    if '/' in filename:
+        # If already a path, return as-is
+        return filename
+    else:
+        # If just a filename, prepend assets directory
+        return f"{DEFAULT_PATHS['assets_dir']}/{filename}"
+
 def get_api_config():
     """
     Get the API configuration dictionary for backward compatibility.
