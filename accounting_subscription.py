@@ -1,3 +1,5 @@
+#Hermes <-> Accounting Subscription Setup Transaction Anomaly Detection Report {date}
+
 import requests
 import json
 import threading
@@ -126,3 +128,8 @@ def main():
 if __name__ == "__main__":
     main()
 
+
+# For transactions that are status 400, cross check once via posty, and if they are still 400, then reconcile them manually.
+# To do this, go to Swagger - Internal Accounts Recon APIs
+# Hit this API -> /internal/accounts/publish_accounting_events/{merchantId}/{merchantTransactionId}
+# Check on it after 10-15 mins, their state should change from In Progress -> Reconciled 

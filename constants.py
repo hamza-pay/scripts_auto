@@ -19,7 +19,7 @@ API_BASE_URLS = {
 
 API_ENDPOINTS = {
     "hermes": {
-        "accounting_event_details": "/v1/housekeeping/accountingEventDetails",
+        "accounting_event_details": "/v1/housekeeping/accountingEventDetails/",
         "db_status_check": "/v1/housekeeping/db"
     },
     "refund_orchestrator": {

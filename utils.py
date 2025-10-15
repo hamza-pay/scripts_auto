@@ -34,7 +34,7 @@ def get_auth_token():
             "AUTHORIZATION_TOKEN not found in environment. "
             "Please set it in your .env file or environment variables."
         )
-    return f"O-Bearer {token}"
+    return f"{token}"
 
 def get_headers():
     """
