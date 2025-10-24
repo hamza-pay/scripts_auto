@@ -188,5 +188,13 @@ def get_api_config():
         "hermes_status_check": {
             "base_url": build_api_url('hermes', 'db_status_check'),
             "endpoint_suffix": ""
+        },
+        "refunds_housekeeping": {
+            "base_url": build_api_url('hermes', 'refunds_housekeeping'),
+            "endpoint_suffix": ""
+        },
+        "payment_service_debug": {
+            "base_url": build_api_url('payment_service', 'housekeeping_debug_with_id'),
+            "endpoint_suffix": "?alreadyReversedFetchLimit=1000"
         }
     }

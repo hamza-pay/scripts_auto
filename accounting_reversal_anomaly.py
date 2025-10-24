@@ -55,7 +55,7 @@ def process_transaction(args):
     This function now accepts a tuple of arguments.
     """
     transaction_id, base_url, endpoint_suffix, service_choice = args
-    url = f"{base_url}{transaction_id}{endpoint_suffix}"
+    url = f"{base_url}/{transaction_id}{endpoint_suffix}"
 
     status_code = "Error"
     response_output = DEFAULTS['no_response']
@@ -89,6 +89,7 @@ def process_transaction(args):
         results.append([transaction_id, status_code, response_output])
 
     print(f"Processed: {transaction_id}")
+    print(url)
 
 def main():
     """

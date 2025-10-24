@@ -58,12 +58,12 @@ def make_api_call(service_name, id1, id2=None):
     # --- Step 1: Configure the API call based on the service name ---
     if service_name == "hermes_status_check":
         base_url = API_CONFIG[service_name]["base_url"]
-        url = f"{base_url}{id1}/{id2}" # Uses merchant_id and merchant_txn_id
+        url = f"{base_url}/{id1}/{id2}" # Uses merchant_id and merchant_txn_id
 
     elif service_name == "payments_debug":
         base_url = API_CONFIG[service_name]["base_url"]
         endpoint_suffix = API_CONFIG[service_name]["endpoint_suffix"]
-        url = f"{base_url}{id1}{endpoint_suffix}" # Uses payment_id
+        url = f"{base_url}/{id1}{endpoint_suffix}" # Uses payment_id
 
     else:
         return DEFAULTS['unknown_service']

@@ -10,7 +10,8 @@ Contains all URLs, endpoints, and configuration values.
 API_BASE_URLS = {
     "hermes": "https://hermes.drove.mer.phonepe.mhx",
     "refund_orchestrator": "https://refund-orchestrator.drove.mer.phonepe.mhx",
-    "payment_service": "https://paymentservice-txnl.drove.pymts.phonepe.nm5"
+    "payment_service": "https://paymentservice-txnl.drove.pymts.phonepe.nm5",
+    "payment_gateway": "https://paymentgateway.drove.pymts.phonepe.nm5"
 }
 
 # ================================================================
@@ -20,13 +21,15 @@ API_BASE_URLS = {
 API_ENDPOINTS = {
     "hermes": {
         "accounting_event_details": "/v1/housekeeping/accountingEventDetails/",
-        "db_status_check": "/v1/housekeeping/db"
+        "db_status_check": "/v1/housekeeping/db",
+        "refunds_housekeeping": "/pg/v2/housekeeping/db/refunds/"
     },
     "refund_orchestrator": {
         "accounting_events": "/v1/accounting/events"
     },
     "payment_service": {
-        "housekeeping_debug": "/v1/housekeeping/debug"
+        "housekeeping_debug": "/v1/housekeeping/debug",
+        "housekeeping_debug_with_id": "/v1/housekeeping/debug/"
     }
 }
 
